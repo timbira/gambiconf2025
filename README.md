@@ -27,6 +27,8 @@
     * [https://pigsty.io/about/extensibility/](https://pigsty.io/about/extensibility/)  
     * [https://pgext.cloud/](https://pgext.cloud/)   
     * [https://pigsty.io/ext/](https://pigsty.io/ext/)   
+  * Trusted untrusted
+  * AWS permite extensções SQL
 5. Referências  
 * [https://www.pgedge.com/blog/introduction-to-postgres-extension-development](https://www.pgedge.com/blog/introduction-to-postgres-extension-development)  
 * [https://www.pgedge.com/blog/returning-multiple-rows-with-postgres-extensions](https://www.pgedge.com/blog/returning-multiple-rows-with-postgres-extensions)
