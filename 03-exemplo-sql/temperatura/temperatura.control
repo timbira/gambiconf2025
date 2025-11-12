@@ -1,0 +1,3 @@
+comment = 'Tipos e operadores para temperaturas em Celsius e Fahrenheit'
+default_version = '1.0'
+relocatable = true

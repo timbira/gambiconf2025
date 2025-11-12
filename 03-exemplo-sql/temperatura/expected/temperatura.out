@@ -1,0 +1,24 @@
+SELECT celsius(0), fahrenheit(32);
+ celsius | fahrenheit 
+---------+------------
+ (0)     | (32)
+(1 row)
+
+SELECT 100::celsius = 212::fahrenheit AS eq1;
+ eq1 
+-----
+ t
+(1 row)
+
+SELECT 0::celsius = 32::fahrenheit AS eq2;
+ eq2 
+-----
+ t
+(1 row)
+
+SELECT 32::fahrenheit = 0::celsius AS eq3;
+ eq3 
+-----
+ t
+(1 row)
+
