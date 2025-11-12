@@ -1,4 +1,20 @@
-# 1. Bootstrap
+# 1. [Bootstrap inicial](https://www.postgresql.org/docs/current/extend-extensions.html)
+
+Aqui encontramos o exemplo de uma extensão chamada `hello_pg`, que representa o mínimo necessário para criação de uma extensão. É puramente SQL e contém uma única função também chamada `hello_pg` para fins didáticos.
+
+```bash
+tree
+.
+├── expected
+│   └── hello_pg.out
+├── hello_pg--1.0.sql
+├── hello_pg.control
+├── Makefile
+└── sql
+    └── hello_pg.sql
+
+2 directories, 5 files
+```
 
 ## 1.1. Como compilar e instalar?
 ```bash
