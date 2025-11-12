@@ -3,3 +3,4 @@ RETURNS text
 AS $$
     SELECT 'Hello, ' || name || '!';
 $$ LANGUAGE sql IMMUTABLE;
+

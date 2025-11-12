@@ -1,3 +1,4 @@
 comment = 'Extensão de exemplo: hello_pg'
 default_version = '1.0'
 relocatable = true
+
