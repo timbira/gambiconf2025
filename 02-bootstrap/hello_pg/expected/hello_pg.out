@@ -1,0 +1,17 @@
+SELECT hello_pg();
+ hello_pg 
+-----------
+ Hello, World!
+(1 row)
+
+SELECT hello_pg('GambiConf');
+ hello_pg 
+-----------
+ Hello, GambiConf!
+(1 row)
+
+SELECT hello_pg('Postgres');
+ hello_pg 
+-----------
+ Hello, Postgres!
+(1 row)
