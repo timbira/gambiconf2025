@@ -1,0 +1,30 @@
+SELECT 0::celsius < 32::fahrenheit AS lt1;
+ lt1 
+-----
+ f
+(1 row)
+
+SELECT 100::celsius > 212::fahrenheit AS gt1;
+ gt1 
+-----
+ f
+(1 row)
+
+SELECT 10::celsius < 20::celsius AS lt2;
+ lt2 
+-----
+ t
+(1 row)
+
+SELECT 20::celsius > 10::celsius AS gt2;
+ gt2 
+-----
+ t
+(1 row)
+
+SELECT 212::fahrenheit > 100::celsius AS gt3;
+ gt3 
+-----
+ f
+(1 row)
+
