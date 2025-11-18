@@ -1,0 +1,11 @@
+/.deps/
+/regression.diffs
+/regression.out
+/results/
+/log/
+/tmp_check/
+*.so
+*.o
+*.bc
+*.gc*
+
