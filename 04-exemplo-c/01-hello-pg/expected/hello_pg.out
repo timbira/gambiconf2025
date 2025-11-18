@@ -1,4 +1,11 @@
 CREATE EXTENSION hello_pg;
+\pset null '(null)'
+SELECT hello_pg(NULL);
+ hello_pg 
+----------
+ (null)
+(1 row)
+
 SELECT hello_pg();
    hello_pg    
 ---------------
@@ -17,3 +24,34 @@ SELECT hello_pg('Postgres');
  Hello, Postgres!
 (1 row)
 
+SHOW hello_pg.greeting_message;
+ hello_pg.greeting_message 
+---------------------------
+ Hello, World!
+(1 row)
+
+SET hello_pg.greeting_message = 'Building Postgres extensions at GambiConf 2025';
+SELECT hello_pg();
+                    hello_pg                    
+------------------------------------------------
+ Building Postgres extensions at GambiConf 2025
+(1 row)
+
+SELECT hello_pg('World');
+   hello_pg    
+---------------
+ Hello, World!
+(1 row)
+
+\set ON_ERROR_STOP 0
+SELECT hello_pg(123);
+ERROR:  function hello_pg(integer) does not exist
+LINE 1: SELECT hello_pg(123);
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+SELECT hello_pg('GambiConf', 'Extra Arg');
+ERROR:  function hello_pg(unknown, unknown) does not exist
+LINE 1: SELECT hello_pg('GambiConf', 'Extra Arg');
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+\set ON_ERROR_STOP 1
