@@ -1,0 +1,4 @@
+comment = 'Extensão de exemplo em C: hello_pg'
+default_version = '1.0'
+module_pathname = '$libdir/hello_pg'
+relocatable = true
