@@ -1,12 +1,17 @@
 #include <postgres.h>
 
 #include <fmgr.h>
+#include <libpq/auth.h>
 #include <utils/builtins.h>
 #include <utils/guc.h>
 
 PG_MODULE_MAGIC;
 
+/* GUC variable  */
 static char *greating_message = NULL;
+
+/* Original Hook */
+static ClientAuthentication_hook_type original_client_auth_hook = NULL;
 
 PG_FUNCTION_INFO_V1(hello_pg);
 
@@ -17,6 +22,16 @@ hello_pg(PG_FUNCTION_ARGS)
     char *output = message ? psprintf("Hello, %s!", message) : greating_message;
 
     PG_RETURN_TEXT_P(cstring_to_text(output));
+}
+
+static void
+hello_pg_client_auth_hook(Port *port, int status)
+{
+    if (original_client_auth_hook)
+        original_client_auth_hook(port, status);
+
+    if (status == STATUS_OK)
+        elog(LOG, "%s: %s", __func__, greating_message);
 }
 
 void
@@ -34,4 +49,8 @@ _PG_init(void)
         NULL,
         NULL
     );
+
+    /* Install Hooks */
+    original_client_auth_hook = ClientAuthentication_hook;
+    ClientAuthentication_hook = hello_pg_client_auth_hook;
 }
