@@ -1,43 +1,51 @@
 CREATE EXTENSION hello_pg;
 \pset null '(null)'
 SELECT hello_pg(NULL);
+NOTICE:  hello_pg_post_parse_analyze_hook: Hello, World!
  hello_pg 
 ----------
  (null)
 (1 row)
 
 SELECT hello_pg();
+NOTICE:  hello_pg_post_parse_analyze_hook: Hello, World!
    hello_pg    
 ---------------
  Hello, World!
 (1 row)
 
 SELECT hello_pg('GambiConf');
+NOTICE:  hello_pg_post_parse_analyze_hook: Hello, World!
      hello_pg      
 -------------------
  Hello, GambiConf!
 (1 row)
 
 SELECT hello_pg('Postgres');
+NOTICE:  hello_pg_post_parse_analyze_hook: Hello, World!
      hello_pg     
 ------------------
  Hello, Postgres!
 (1 row)
 
 SHOW hello_pg.greeting_message;
+NOTICE:  hello_pg_post_parse_analyze_hook: Hello, World!
  hello_pg.greeting_message 
 ---------------------------
  Hello, World!
 (1 row)
 
 SET hello_pg.greeting_message = 'Building Postgres extensions at GambiConf 2025';
+NOTICE:  hello_pg_post_parse_analyze_hook: Hello, World!
 SELECT hello_pg();
+NOTICE:  hello_pg_post_parse_analyze_hook: Building Postgres extensions at GambiConf 2025
                     hello_pg                    
 ------------------------------------------------
  Building Postgres extensions at GambiConf 2025
 (1 row)
 
 SELECT hello_pg('World');
+NOTICE:  hello_pg_post_parse_analyze_hook: Building Postgres extensions at GambiConf 2025
    hello_pg    
 ---------------
  Hello, World!
@@ -55,3 +63,17 @@ LINE 1: SELECT hello_pg('GambiConf', 'Extra Arg');
                ^
 HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
 \set ON_ERROR_STOP 1
+SET client_min_messages TO WARNING;
+NOTICE:  hello_pg_post_parse_analyze_hook: Building Postgres extensions at GambiConf 2025
+SHOW hello_pg.greeting_message;
+           hello_pg.greeting_message            
+------------------------------------------------
+ Building Postgres extensions at GambiConf 2025
+(1 row)
+
+SELECT 1; -- não deve emitir a mensagem definida
+ ?column? 
+----------
+        1
+(1 row)
+
