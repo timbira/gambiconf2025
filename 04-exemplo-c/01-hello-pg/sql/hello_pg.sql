@@ -15,3 +15,8 @@ SELECT hello_pg('World');
 SELECT hello_pg(123);
 SELECT hello_pg('GambiConf', 'Extra Arg');
 \set ON_ERROR_STOP 1
+
+SET client_min_messages TO WARNING;
+SHOW hello_pg.greeting_message;
+SELECT 1; -- não deve emitir a mensagem definida
+
