@@ -42,6 +42,8 @@ hello_pg_post_parse_analyze_hook(ParseState *pstate, Query *query, JumbleState *
     if (original_post_parse_analyze_hook)
         original_post_parse_analyze_hook(pstate, query, jstate);
 
+    pg_usleep(5000000L);
+
     elog(NOTICE, "%s: %s", __func__, greeting_message);
 }
 
