@@ -4,7 +4,7 @@
 
 ```bash
 $ apt install -y \
-    build-essential bison flex zlib1g-dev libreadline-dev libkbr5-dev libicu-dev libssl-dev
+    build-essential bison flex zlib1g-dev libreadline-dev libkrb5-dev libicu-dev libssl-dev
 ```
 
 ## Repositório PGDG (PostgreSQL Global Development Group)
